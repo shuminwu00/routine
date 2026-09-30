@@ -25,9 +25,9 @@
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
-  font-size:16px;
+  font-size:15px;
 }
-:root[data-fs="s"]{font-size:14.5px} :root[data-fs="l"]{font-size:18px}
+:root[data-fs="s"]{font-size:13.5px} :root[data-fs="l"]{font-size:16.5px}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){--bg:#121714;--surface:#1B221D;--ink:#E8EEE9;--muted:#8E9A91;--line:#2A342D;--lime:#24321C;--sky:#1A2E36;--chip:#242D27;--accent-ink:color-mix(in srgb,var(--accent) 60%,#fff)}
 }
@@ -40,11 +40,11 @@ button{cursor:pointer;border:0;background:none;padding:0}
 :focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:10px}
 .num{font-family:"Nunito","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
 .app{max-width:560px;margin:0 auto;padding:0 18px 110px}
-h1{font-size:1.65rem;font-weight:900;margin:22px 0 14px;letter-spacing:-.01em}
+h1{font-size:1.45rem;font-weight:900;margin:22px 0 14px;letter-spacing:-.01em}
 .muted{color:var(--muted)}
 /* header */
 .top{display:flex;align-items:center;justify-content:space-between;margin:20px 0 10px}
-.month{font-size:1.5rem;font-weight:900}
+.month{font-size:1.3rem;font-weight:900}
 .pill{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;background:var(--chip);font-weight:700;font-size:.9rem}
 .iconbtn{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:var(--chip);font-size:1.1rem}
 /* week strip */
@@ -64,20 +64,73 @@ h1{font-size:1.65rem;font-weight:900;margin:22px 0 14px;letter-spacing:-.01em}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;padding:8px 15px;border-radius:999px;background:var(--chip);font-weight:600;font-size:.92rem;color:var(--muted)}
 .chip.on{background:var(--ink);color:var(--surface)}
+.chip.sel{background:var(--accent-soft);color:var(--accent-ink);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.selchip{display:inline-flex;align-items:center;gap:2px}
+.selchip select{appearance:none;-webkit-appearance:none;background:transparent;border:0;color:inherit;font-weight:700;padding:0;outline:none}
+.hcard.hl{background:var(--hlc,#FFF3A3);border-color:transparent}
+.gc button,.gh,.hcard{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.lv{flex:none;display:inline-block;font-family:"Nunito",sans-serif;font-size:.66rem;font-weight:900;padding:2px 6px;border-radius:6px;background:color-mix(in srgb,var(--c) 16%,var(--surface));color:var(--c);line-height:1.3}
+.cell.two{gap:1px;font-size:1rem;line-height:1}
+.cell.two small{font-size:.6rem;font-weight:800;color:var(--ink)}
+.hlprev{display:grid;grid-template-columns:1fr 2.2fr 48px;border-radius:12px;overflow:hidden;border:1px solid var(--line);margin-bottom:12px}
+.hlprev span{background:var(--hlc);padding:10px;border-right:1px solid rgba(30,43,34,.1);font-size:.86rem;color:#1E2B22;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hlprev span:last-child{border-right:0;text-align:center}
+.lvin{display:flex;align-items:center;gap:8px}
+.grid>.rh{cursor:pointer;font-weight:700}
+.grid>.rh:not(.hl){background:var(--lime)}
+.grid>.gh.rs{padding-left:20px}
+.grid>.gi.rs{color:var(--muted)}
+.rplay{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-size:.72rem;display:grid;place-items:center}
+.rprog{display:grid;place-items:center;line-height:1;gap:2px;font-size:1rem}
+.rprog small{font-size:.62rem;font-weight:800}
+.rprog.ok small{color:var(--accent-ink)}
+.rlabel{text-align:left;background:var(--lime);border-radius:14px;padding:8px 12px;color:var(--ink);display:flex;justify-content:space-between}
+.addbox{width:100%;border:1.5px dashed var(--line);border-radius:16px;padding:16px;color:var(--muted);font-weight:600;margin-top:10px}
+.info p{line-height:1.75;font-size:.95rem;margin:10px 2px}
+.info h3{font-size:1.02rem;margin:24px 2px 10px}
+.ibox{background:var(--surface);border-radius:20px;padding:16px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.ibox.col{flex-direction:column;gap:8px}
+.itag{padding:9px 16px;border-radius:14px;background:var(--bg);font-weight:700}
+.itag.dark{background:var(--ink);color:var(--surface)}
+.ipill{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:999px;padding:7px 18px 7px 7px;font-weight:700;min-width:170px}
+.ipill b{width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--surface);display:grid;place-items:center;font-size:.8rem;flex:none}
+.ipill.hl{color:#2F6FEB} .ipill.hl b{background:#2F6FEB;color:#fff}
+.lvin .lv{width:44px;text-align:center}
+.row-btn{width:100%;text-align:left;gap:10px}
+.row-btn .lb{flex:1;min-width:0}
+.rv{font-size:.92rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:55%}
+.rv.ph{color:var(--muted)}
+.ck{color:var(--accent);font-weight:900;margin-left:6px}
+.switch{width:50px;height:30px;border-radius:30px;background:var(--line);position:relative;flex:none;transition:background .2s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .2s}
+.switch.on{background:var(--accent)} .switch.on::after{transform:translateX(20px)}
+.savebar{position:sticky;bottom:0;background:var(--bg);padding:10px 0 2px;margin-top:4px}
+.badges{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+.badge{display:flex;flex-direction:column;align-items:center;gap:3px}
+.bi{width:46px;height:46px;border-radius:50%;background:var(--chip);display:grid;place-items:center;font-size:1.3rem;filter:grayscale(1);opacity:.45}
+.badge.on .bi{background:var(--accent-soft);filter:none;opacity:1;box-shadow:0 0 0 2px var(--accent)}
+.bl{font-size:.76rem;font-weight:800} .bp{font-size:.68rem;color:var(--muted)}
+.bsub{font-size:.82rem;margin:4px 0 8px}
+.cele{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);width:min(92%,520px);background:var(--sky);border-radius:22px;padding:14px 16px;display:flex;gap:12px;align-items:center;z-index:70;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.cele.show{opacity:1;transform:translate(-50%,0)} .cele .ce-ic{font-size:2rem}
 /* habit table */
-.grid{display:grid;grid-template-columns:26px minmax(64px,.9fr) 2.4fr 64px;gap:0;background:var(--surface);border:1.5px solid var(--line);border-radius:22px;overflow:hidden}
-.grid>div{border-bottom:1px solid var(--line);min-height:62px;display:flex;align-items:center}
-.grid>div.last{border-bottom:0}
+.grid{display:grid;grid-template-columns:26px minmax(60px,.85fr) 2.5fr 58px;gap:0;background:var(--surface);border:1.5px solid var(--line);border-radius:22px;overflow:hidden}
+.grid>*{border-bottom:1px solid var(--line);min-height:54px;display:flex;align-items:center}
+.grid>.last{border-bottom:0}
+.grid>.hl{background:var(--hlc,#FFF3A3)}
+:root[data-theme="dark"] .grid>.hl,:root[data-theme="dark"] .hcard.hl{background:color-mix(in srgb,var(--hlc,#FFF3A3) 22%,var(--surface))}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .grid>.hl,:root:not([data-theme="light"]) .hcard.hl{background:color-mix(in srgb,var(--hlc,#FFF3A3) 22%,var(--surface))}}
 .gi{justify-content:center;color:var(--muted);font-size:.85rem;background:var(--bg)}
-.gg{padding:0 10px;font-size:.9rem;font-weight:500;border-right:1px solid var(--line)}
-.gh{padding:0 12px;gap:8px;border-right:1px solid var(--line);text-align:left;width:100%;min-width:0}
+.gg{padding:0 8px;font-size:.82rem;font-weight:500;border-right:1px solid var(--line);line-height:1.3;word-break:break-all}
+.gh{padding:0 8px 0 10px;gap:7px;border-right:1px solid var(--line);text-align:left;width:100%;min-width:0;height:100%}
+.gh .fl{flex:none;width:48px;display:flex;justify-content:flex-end}
 .gh .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
-.gh .em{font-size:1.25rem}
+.gh .em{font-size:1.15rem;flex:none}
 .gc{justify-content:center}
 .flame{flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px 8px;border-radius:999px;background:var(--chip);color:var(--muted);font-size:.8rem;font-weight:800}
 .flame.hot{background:#FFE7E0;color:#E4572E}
 :root[data-theme="dark"] .flame.hot{background:#3a221b}
-.cell{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-weight:800;font-size:.85rem;border:2px dashed var(--line);color:var(--muted);line-height:1.1;text-align:center}
+.cell{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:.85rem;border:2px dashed var(--line);color:var(--muted);line-height:1.1;text-align:center}
 .cell.done{border:0;font-size:1.35rem}
 .cell.part{border-style:solid;border-color:var(--hc,var(--accent))}
 .cell.val{border:0;background:var(--hsoft);color:var(--ink);font-size:.82rem}
@@ -98,10 +151,10 @@ h1{font-size:1.65rem;font-weight:900;margin:22px 0 14px;letter-spacing:-.01em}
 .starter{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0}
 .starter button{padding:9px 14px;border-radius:999px;background:var(--chip);font-weight:600;font-size:.9rem;border:2px solid transparent}
 .starter button.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 20px;border-radius:18px;background:var(--accent);color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;flex:none;padding:13px 20px;border-radius:18px;background:var(--accent);color:#fff;font-weight:700}
 .btn.ghost{background:var(--chip);color:var(--ink)}
 .btn.danger{background:transparent;color:#E0463A}
-.btn.block{width:100%}
+.btn.block{width:100%;flex:initial}
 .btn:disabled{opacity:.45}
 /* todos */
 .todo{display:flex;align-items:center;gap:12px;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;margin-bottom:8px}
@@ -219,6 +272,7 @@ svg text{font-family:"Nunito",sans-serif}
 <div class="scrim" id="scrim"><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
 <div class="timer" id="timer"></div>
 <div class="toast" id="toast"></div>
+<div class="cele" id="cele" role="status"></div>
 
 <script>
 /* ============ utils ============ */
@@ -240,11 +294,15 @@ const ACCENTS=[['綠','#1DB866'],['藍','#3B82F6'],['珊瑚','#F0735A'],['紫','
 const TYPES={check:'打勾',count:'次數',number:'數值',time:'時間',rating:'評分',note:'備註'};
 const EMOS=['💧','🥛','🍋','💪','🧘','🏃','📚','⚖️','☀️','🌙','🙂','🦷','🥗','💊','🚶','✍️','🧹','🎨','🎬','😴'];
 const RATE=['😣','🙁','😐','🙂','😄'];
+const LV=[null,['Mini','#1DB866'],['Plus','#3B82F6'],['Max','#E4572E']];
+const HLCOLORS=['#FFF3A3','#FFD6D6','#FFE0C2','#E6F7B8','#D2F0FB','#DCDDF2','#F3D9F7','#FFFBE0','#FFE9E9','#FFF1E3','#EDF8E4','#E6F4FC','#EFEFF8','#FAEEFA'];
+const firstG=str=>{str=(str||'').trim();if(!str)return '';try{const it=new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(str)[Symbol.iterator]().next();return it.done?'':it.value.segment}catch(e){return [...str].slice(0,2).join('')}};
+const nowHM=()=>{const n=new Date();return pad(n.getHours())+':'+pad(n.getMinutes())};
 
 /* ============ state ============ */
-const DEFAULT_CFG={v:1,groups:['起床後','上午','飯後','下午','睡前'],habits:[],routines:[],todos:[],
+const DEFAULT_CFG={v:4,groups:['起床後','上午','中午','下午','晚上','睡前','通勤'],categories:['💪健康管理','🧠自我管理','🏠生活','📚學習成長'],achievements:{},habits:[],routines:[],todos:[],
   settings:{accent:'#1DB866',theme:'auto',fs:'m',view:'table',weekStart:0}};
-const S={cfg:clone(DEFAULT_CFG),logs:{},ui:{tab:'today',sel:todayS(),todayTab:'habits',gf:null,statsMonth:ymOf(todayS()),statsMode:'month',starter:new Set()}};
+const S={cfg:clone(DEFAULT_CFG),logs:{},ui:{tab:'today',sel:todayS(),todayTab:'habits',cf:null,ff:'all',statsMonth:ymOf(todayS()),statsMode:'month',starter:new Set()}};
 
 /* ============ storage (cloud db + local cache) ============ */
 const Store={db:null,uid:null,cloud:false,status:'本機',
@@ -307,11 +365,12 @@ function setVal(date,hid,v){
   if(empty){if(days[date]){delete days[date][hid];if(!Object.keys(days[date]).length)delete days[date]}}
   else{(days[date]||(days[date]={}))[hid]=v}
   saveMonth(ym);
+  if(!empty)checkAch();
 }
 function isDone(h,v){
   if(v===undefined||v===null)return false;
   switch(h.type){
-    case 'check':return v===true;
+    case 'check':return v===true||(!!v&&typeof v==='object'&&!!v.d);
     case 'count':return Number(v)>=(h.target||1);
     case 'note':return typeof v==='string'&&v.trim()!=='';
     default:return v!=='';
@@ -347,6 +406,24 @@ function dayProgress(date){
   activeHabits().forEach(h=>{if((h.repeat||{}).mode==='weekly')return;if(!scheduled(h,date))return;tot++;if(isDone(h,getVal(date,h.id)))done++});
   return tot?done/tot:0;
 }
+const cv=v=>v&&typeof v==='object'?v:(v===true?{d:true}:null);
+const lvOn=h=>h.type==='check'&&h.levels&&h.levels.on;
+function levelName(h,l){const L=h.levels||{};return l===1?(L.mini||h.name):l===2?L.plus:L.max}
+function makeCheck(h,{l,t,n}={}){
+  const trk=h.type==='check'?h.track:'';
+  if(!l&&!trk)return true;
+  const o={d:true};if(l)o.l=l;
+  if(trk==='time')o.t=t||nowHM();
+  if(trk==='number'&&n!==undefined&&n!==null&&n!=='')o.n=Number(n);
+  return o;
+}
+function trackVal(h,v){
+  if(v===undefined||v===null||v==='')return undefined;
+  if(h.type==='check'){const o=cv(v);if(!o)return undefined;return h.track==='time'?o.t:h.track==='number'?o.n:undefined}
+  return (h.type==='number'||h.type==='time'||h.type==='rating')?v:undefined;
+}
+function checkCell(h,v){const o=cv(v)||{};const sub=o.t||(o.n!=null?o.n:'');
+  return `<span class="cell done ${sub!==''?'two':''}"><span>${esc(h.emoji)}</span>${sub!==''?`<small class="num">${esc(sub)}</small>`:''}</span>`}
 function displayVal(h,v){
   if(v===undefined||v===null||v==='')return '';
   if(h.type==='count')return v+'/'+(h.target||1);
@@ -402,59 +479,90 @@ function renderToday(){
 }
 function orderedHabits(date){
   const g=S.cfg.groups;
-  let list=activeHabits().filter(h=>(h.repeat||{}).mode==='weekly'||scheduled(h,date));
-  if(S.ui.gf)list=list.filter(h=>(h.group||'')===S.ui.gf);
+  let list=activeHabits().filter(h=>!(h.createdAt&&date<h.createdAt)&&((h.repeat||{}).mode==='weekly'||scheduled(h,date)));
+  if(S.ui.cf)list=list.filter(h=>(h.category||'')===S.ui.cf);
+  if(S.ui.ff==='daily')list=list.filter(h=>(h.repeat||{}).mode!=='weekly');
+  if(S.ui.ff==='weekly')list=list.filter(h=>(h.repeat||{}).mode==='weekly');
   const gi=x=>{const i=g.indexOf(x.group);return i<0?999:i};
-  return list.sort((a,b)=>gi(a)-gi(b)||(a.order||0)-(b.order||0));
+  return list.sort((a,b)=>gi(a)-gi(b)||(b.importance||1)-(a.importance||1)||(a.order||0)-(b.order||0));
+}
+function flameHTML(x,sel){
+  if(x.showStreak===false)return '<span class="fl"></span>';
+  if((x.repeat||{}).mode==='weekly'){const c=weekCount(x,sel),n=x.repeat.n||1;return `<span class="fl"><span class="flame num ${c>=n?'hot':''}">${c}/${n}</span></span>`}
+  const st=streak(x,sel);return `<span class="fl"><span class="flame num ${st.n?'hot':''}">🔥${st.n}</span></span>`;
+}
+function buildEntries(date){
+  const vis=h=>!(h.createdAt&&date<h.createdAt)&&((h.repeat||{}).mode==='weekly'||scheduled(h,date))
+    &&(!S.ui.cf||(h.category||'')===S.ui.cf)&&(S.ui.ff==='all'||(S.ui.ff==='weekly')===((h.repeat||{}).mode==='weekly'));
+  const inR=new Set(),out=[];
+  S.cfg.routines.forEach((r,ri)=>{const steps=r.steps.map(s=>H(s.hid)).filter(h=>h&&!h.archived);steps.forEach(h=>inR.add(h.id));const vs=steps.filter(vis);if(vs.length)out.push({r,ri,steps:vs,group:r.group||''})});
+  activeHabits().filter(h=>!inR.has(h.id)&&vis(h)).forEach(h=>out.push({h,group:h.group||''}));
+  const g=S.cfg.groups,gi=x=>{const i=g.indexOf(x);return i<0?999:i};
+  return out.sort((a,b)=>gi(a.group)-gi(b.group)||(a.r?0:1)-(b.r?0:1)||(a.r&&b.r?a.ri-b.ri:0)||(!a.r&&!b.r?((b.h.importance||1)-(a.h.importance||1)||(a.h.order||0)-(b.h.order||0)):0));
+}
+function habitCells(x,num,sel,cls,step){
+  const v=getVal(sel,x.id),dn=isDone(x,v);
+  let cell;
+  if(x.type==='check')cell=dn?checkCell(x,v):`<span class="cell"></span>`;
+  else if(x.type==='count')cell=dn?`<span class="cell done">${esc(x.emoji)}</span>`:`<span class="cell ${v?'part':''} num">${v||0}/${x.target||1}</span>`;
+  else cell=(v!==undefined&&v!=='')?`<span class="cell val num">${displayVal(x,v)}</span>`:`<span class="cell">＋</span>`;
+  const hs=x.highlight?` style="--hlc:${x.hlColor||'#FFF3A3'}"`:'';
+  const o=x.type==='check'?cv(v):null,lvl=(lvOn(x)&&o&&o.d)?(o.l||1):0;
+  const nmHTML=lvl?`<span class="lv" style="--c:${LV[lvl][1]}">${LV[lvl][0]}</span><span class="nm">${esc(levelName(x,lvl))}</span>`:`<span class="nm">${esc(x.name)}</span>`;
+  return `<div class="gi num${cls}"${hs}>${num}</div><div class="gg${cls}"${hs}>${step?'':esc(x.group||'')}</div>
+      <button class="gh${cls}"${hs} data-act="edit" data-id="${x.id}"><span class="em">${esc(x.emoji)}</span>${nmHTML}${flameHTML(x,sel)}</button>
+      <div class="gc${cls}"${hs}><button data-act="log" data-id="${x.id}" style="--hc:${x.color};--hsoft:${soft(x.color)}" aria-label="記錄 ${esc(x.name)}">${cell}</button></div>`;
+}
+function routineProg(e,sel){const n=e.steps.length,d=e.steps.filter(h=>isDone(h,getVal(sel,h.id))).length;return {n,d}}
+function routineCells(e,sel,cls){
+  const r=e.r,{n,d}=routineProg(e,sel);
+  const c=' rh'+cls+(r.highlight?' hl':''),hs=r.highlight?` style="--hlc:${r.hlColor||'#FFF3A3'}"`:'',a=`data-act="rtog" data-id="${r.id}"`;
+  return `<div class="gi${c}"${hs} ${a}>${r.collapsed?'▸':'▾'}</div><div class="gg${c}"${hs} ${a}>${esc(r.group||'')}</div>
+    <div class="gh${c}"${hs} ${a} role="button" tabindex="0" aria-expanded="${!r.collapsed}"><span class="em">${esc(r.emoji)}</span><span class="nm">${esc(r.name)}</span>${r.timer!==false&&sel===todayS()?`<button class="rplay" data-act="startRoutine" data-id="${r.id}" aria-label="開始計時">▶</button>`:''}</div>
+    <div class="gc${c}"${hs} ${a}><span class="rprog ${d===n?'ok':''}"><span>${esc(r.emoji)}</span><small class="num">${d}/${n}</small></span></div>`;
+}
+function cardHTML(x,sel){
+  const v=getVal(sel,x.id),dn=isDone(x,v);
+  let prog='';
+  if(x.type==='count'){const p=Math.min(1,(Number(v)||0)/(x.target||1));prog=`<div class="bar"><i style="width:${p*100}%"></i></div>`}
+  let val=x.type!=='check'&&v!==undefined&&v!==''?' · '+displayVal(x,v):'';
+  if(x.type==='check'&&dn){const o=cv(v);if(lvOn(x))val+=' · '+esc(LV[o.l||1][0]+' '+levelName(x,o.l||1));if(o.t)val+=' · '+esc(o.t);if(o.n!=null)val+=' · '+esc(o.n+(x.trackUnit||''))}
+  return `<button class="hcard ${dn?'done':''} ${x.highlight?'hl':''}" style="--hc:${x.color};--hsoft:${soft(x.color)};--hlc:${x.hlColor||'#FFF3A3'}" data-act="log" data-id="${x.id}">
+    <div class="row"><span class="em">${esc(x.emoji)}</span>${flameHTML(x,sel)}</div>
+    <div><div class="nm">${esc(x.name)}</div><div class="sub">${esc(x.group||TYPES[x.type])}${val}</div></div>${prog}</button>`;
 }
 function renderHabitList(){
   if(!activeHabits().length)return renderStarter();
   const sel=S.ui.sel;
-  const usedGroups=S.cfg.groups.filter(g=>activeHabits().some(h=>h.group===g));
-  let h='';
-  if(usedGroups.length>1)h+=`<div class="chips"><button class="chip ${!S.ui.gf?'on':''}" data-act="gf" data-v="">全部</button>${usedGroups.map(g=>`<button class="chip ${S.ui.gf===g?'on':''}" data-act="gf" data-v="${esc(g)}">${esc(g)}</button>`).join('')}</div>`;
-  const list=orderedHabits(sel);
-  if(!list.length)return h+`<div class="empty"><p class="muted">這一天沒有排定的習慣</p></div>`;
+  const usedCats=S.cfg.categories.filter(c=>activeHabits().some(h=>h.category===c));
+  let h=`<div class="chips"><label class="chip on selchip"><select data-sel="ff" aria-label="週期篩選">${[['all','全部'],['daily','每天'],['weekly','每週']].map(([k,l])=>`<option value="${k}" ${S.ui.ff===k?'selected':''}>${l}</option>`).join('')}</select>▾</label>${usedCats.map(c=>`<button class="chip ${S.ui.cf===c?'sel':''}" data-act="cf" data-v="${esc(c)}">${esc(c)}</button>`).join('')}</div>`;
+  const entries=buildEntries(sel);
+  if(!entries.length)return h+`<div class="empty"><p class="muted" style="margin:0">沒有符合篩選的習慣</p></div>`;
+  const shown=[];entries.forEach(e=>e.r?shown.push(...e.steps):shown.push(e.h));
+  const hint=shown.some(lvOn)?'；Mini/Plus/Max 習慣長按格子可選等級':'';
   if(S.cfg.settings.view==='card'){
-    h+='<div class="cards">';let lastG=null;
-    list.forEach(x=>{
-      if(x.group!==lastG&&usedGroups.length){h+=`<div class="glabel">${esc(x.group||'未分時段')}</div>`;lastG=x.group}
-      const v=getVal(sel,x.id),dn=isDone(x,v),st=streak(x,sel),wk=(x.repeat||{}).mode==='weekly';
-      let sub=wk?`本週 ${weekCount(x,sel)}/${x.repeat.n}`:(st.n?`🔥 連續 ${st.n} ${st.unit}`:TYPES[x.type]);
-      let prog='';
-      if(x.type==='count'){const p=Math.min(1,(Number(v)||0)/(x.target||1));prog=`<div class="bar"><i style="width:${p*100}%"></i></div>`}
-      h+=`<button class="hcard ${dn?'done':''}" style="--hc:${x.color};--hsoft:${soft(x.color)}" data-act="log" data-id="${x.id}">
-        <div class="row"><span class="em">${esc(x.emoji)}</span><span class="num" style="font-weight:800">${dn&&x.type==='check'?'✓':displayVal(x,v)}</span></div>
-        <div><div class="nm">${esc(x.name)}</div><div class="sub">${sub}</div></div>${prog}</button>`;
+    h+='<div class="cards">';
+    entries.forEach(e=>{
+      if(e.r){const {n,d}=routineProg(e,sel);h+=`<button class="glabel rlabel" data-act="rtog" data-id="${e.r.id}"><span>${esc(e.r.emoji)} ${esc(e.r.name)} <span class="num">${d}/${n}</span></span><span>${e.r.collapsed?'▸':'▾'}</span></button>`;if(!e.r.collapsed)e.steps.forEach(x=>h+=cardHTML(x,sel))}
+      else h+=cardHTML(e.h,sel);
     });
-    return h+'</div>';
+    return h+`</div><p class="sync">卡片檢視點一下即記錄；要編輯請到「設定 → 習慣排序」${hint}</p>`;
   }
-  h+='<div class="grid">';
-  let lastG=Symbol();
-  list.forEach((x,i)=>{
-    const last=i===list.length-1?' last':'';
-    const v=getVal(sel,x.id),dn=isDone(x,v),st=streak(x,sel),wk=(x.repeat||{}).mode==='weekly';
-    const showG=x.group!==lastG;lastG=x.group;
-    let badge=wk?`<span class="flame ${weekCount(x,sel)>=(x.repeat.n||1)?'hot':''}">${weekCount(x,sel)}/${x.repeat.n}</span>`:`<span class="flame ${st.n?'hot':''}">🔥${st.n}</span>`;
-    let cell;
-    if(x.type==='check')cell=dn?`<span class="cell done">${esc(x.emoji)}</span>`:`<span class="cell"></span>`;
-    else if(x.type==='count')cell=dn?`<span class="cell done">${esc(x.emoji)}</span>`:`<span class="cell ${v?'part':''} num">${v||0}/${x.target||1}</span>`;
-    else cell=(v!==undefined&&v!=='')?`<span class="cell val num">${displayVal(x,v)}</span>`:`<span class="cell">＋</span>`;
-    h+=`<div class="gi num${last}">${i+1}</div><div class="gg${last}">${showG?esc(x.group||''):''}</div>
-      <button class="gh${last}" data-act="edit" data-id="${x.id}"><span class="em">${esc(x.emoji)}</span><span class="nm">${esc(x.name)}</span>${badge}</button>
-      <div class="gc${last}"><button data-act="log" data-id="${x.id}" style="--hc:${x.color};--hsoft:${soft(x.color)}" aria-label="記錄 ${esc(x.name)}">${cell}</button></div>`;
-  });
-  return h+'</div><p class="sync">點名稱編輯習慣，點右側格子記錄</p>';
+  const rows=[];let k=0;
+  entries.forEach(e=>{if(e.r){rows.push({r:e});if(!e.r.collapsed)e.steps.forEach((x,i)=>rows.push({x,num:i+1,step:true}))}else rows.push({x:e.h,num:++k})});
+  h+='<div class="grid">'+rows.map((row,i)=>{const last=i===rows.length-1?' last':'';
+    return row.r?routineCells(row.r,sel,last):habitCells(row.x,row.num,sel,last+(row.step?' rs':'')+(row.x.highlight?' hl':''),row.step)}).join('')+'</div>';
+  return h+`<p class="sync">點名稱編輯習慣，點右側格子記錄；點作息標題列可收合${hint}</p>`;
 }
 const STARTERS=[
-  {name:'空腹喝水',emoji:'🥛',type:'check',group:'起床後'},
-  {name:'起床時間',emoji:'☀️',type:'time',group:'起床後'},
-  {name:'喝水',emoji:'💧',type:'count',target:8,unit:'杯'},
-  {name:'吃營養補充品',emoji:'🍋',type:'check',group:'飯後'},
-  {name:'記錄體重',emoji:'⚖️',type:'number',unit:'kg',group:'起床後'},
-  {name:'運動',emoji:'💪',type:'check',repeat:{mode:'weekly',n:2}},
-  {name:'睡前伸展',emoji:'🧘',type:'check',group:'睡前',duration:5},
-  {name:'今日心情',emoji:'🙂',type:'rating',group:'睡前'},
+  {name:'空腹喝水',emoji:'🥛',type:'check',category:'💪健康管理',group:'起床後'},
+  {name:'起床時間',emoji:'☀️',type:'time',category:'🧠自我管理',group:'起床後'},
+  {name:'喝水',emoji:'💧',type:'count',category:'💪健康管理',target:8,unit:'杯'},
+  {name:'吃營養補充品',emoji:'🍋',type:'check',category:'💪健康管理',group:'中午'},
+  {name:'記錄體重',emoji:'⚖️',type:'number',category:'💪健康管理',unit:'kg',group:'起床後'},
+  {name:'運動',emoji:'💪',type:'check',category:'💪健康管理',repeat:{mode:'weekly',n:2}},
+  {name:'睡前伸展',emoji:'🧘',type:'check',category:'💪健康管理',group:'睡前',duration:5},
+  {name:'今日心情',emoji:'🙂',type:'rating',category:'🧠自我管理',group:'睡前'},
 ];
 function renderStarter(){
   return `<div class="empty"><div style="font-size:2.4rem">🌱</div><h3>先挑幾個想養成的習慣</h3>
@@ -480,9 +588,32 @@ function doLog(id){
   const h=H(id),sel=S.ui.sel;
   if(sel>todayS()){toast('還沒到這一天');return}
   const v=getVal(sel,id);
-  if(h.type==='check'){setVal(sel,id,v===true?undefined:true);render();return}
+  if(h.type==='check'){
+    if(isDone(h,v)){setVal(sel,id,undefined);render();return}
+    if(h.track==='number'||(h.track==='time'&&sel!==todayS()))return openCheckSheet(h);
+    setVal(sel,id,makeCheck(h,{l:lvOn(h)?1:undefined}));render();return;
+  }
   if(h.type==='count'&&!isDone(h,v)){setVal(sel,id,(Number(v)||0)+1);render();return}
   openLogSheet(h);
+}
+function openCheckSheet(h){
+  const sel=S.ui.sel,cur=cv(getVal(sel,h.id))||{},on=lvOn(h);
+  const t=cur.t||(sel===todayS()?nowHM():''),n=cur.n??'';
+  const lvls=on?[1,2,3].filter(l=>l===1||levelName(h,l)):[];
+  const body=`<div class="grab"></div><div class="sh-head"><h2>${esc(h.emoji)} ${esc(h.name)}</h2><span class="muted num">${sel.slice(5).replace('-','/')}</span></div>
+   ${h.track==='time'?`<div class="group"><div class="field"><label for="ckT">完成時間</label><span style="display:flex;gap:8px"><input id="ckT" class="mini num" type="time" value="${t}"><button class="btn ghost" style="padding:8px 12px" data-now>現在</button></span></div></div>`:''}
+   ${h.track==='number'?`<div class="group"><div class="field"><label for="ckN">數值</label><span><input id="ckN" class="mini num" type="number" inputmode="decimal" step="any" value="${n}"> ${esc(h.trackUnit||'')}</span></div></div>`:''}
+   ${on?`<div class="sec-title">今天做哪一級？</div><div class="group">${lvls.map(l=>`<button class="field row-btn" data-lv="${l}"><span class="lb"><span class="lv" style="--c:${LV[l][1]}">${LV[l][0]}</span> ${esc(levelName(h,l))}</span>${cur.d&&(cur.l||1)===l?'<span class="ck">✓</span>':''}</button>`).join('')}</div>`:'<button class="btn block" data-lv="0">完成</button>'}
+   <button class="btn ghost block" data-clear style="margin-top:10px">清除紀錄</button>`;
+  openSheet(body,sh=>{sh.onclick=e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.hasAttribute('data-now')){$('#ckT').value=nowHM();return}
+    if(b.hasAttribute('data-clear')){setVal(sel,h.id,undefined);closeSheet();render();return}
+    if(b.dataset.lv!==undefined){
+      const tv=$('#ckT')?$('#ckT').value:undefined,nv=$('#ckN')?$('#ckN').value:undefined;
+      if(h.track==='number'&&(nv===''||nv==null)){toast('請輸入數值');return}
+      setVal(sel,h.id,makeCheck(h,{l:on?(Number(b.dataset.lv)||1):undefined,t:tv,n:nv}));closeSheet();render();
+    }
+  }});
 }
 function openLogSheet(h){
   const sel=S.ui.sel;let v=getVal(sel,h.id);
@@ -514,104 +645,211 @@ function openLogSheet(h){
 }
 
 /* ============ HABIT EDITOR ============ */
+const IMP=[['💚','一般'],['💛','重要'],['❤️','非常重要']];
+const TYPE_DESC={check:'做了就打勾',count:'例：喝水 8 杯',number:'例：體重、步數',time:'例：起床時間',rating:'例：心情 1–5',note:'寫一段文字'};
+function repeatLabel(r){if(r.mode==='days')return r.days.length===7?'每日':'每週'+[...r.days].sort().map(i=>WD[i]).join('、');if(r.mode==='weekly')return `每週 ${r.n} 次`;return '每日'}
 function openHabitEditor(id){
   const isNew=!id;
-  const h=isNew?{id:uid(),name:'',emoji:'✅',type:'check',color:HCOLORS[Math.floor(Math.random()*HCOLORS.length)],repeat:{mode:'daily',n:3,days:[1,2,3,4,5]},group:'',target:8,unit:'',duration:5,createdAt:todayS()}:clone(H(id));
+  const h=isNew?{id:uid(),name:'',emoji:'✅',type:'check',color:HCOLORS[Math.floor(Math.random()*HCOLORS.length)],repeat:{mode:'daily',n:3,days:[1,2,3,4,5]},group:'',category:S.ui.cf||'',target:8,unit:'',duration:5,importance:1,showStreak:true,highlight:false,hlColor:'#FFF3A3',track:'',trackUnit:'',levels:{on:false,mini:'',plus:'',max:''},createdAt:todayS()}:clone(H(id));
+  h.levels=Object.assign({on:false,mini:'',plus:'',max:''},h.levels||{});h.hlColor=h.hlColor||'#FFF3A3';h.track=h.track||'';if(!h.createdAt)h.createdAt=todayS();
   h.repeat=Object.assign({mode:'daily',n:3,days:[1,2,3,4,5]},h.repeat||{});
+  if(h.importance==null)h.importance=1;if(h.showStreak==null)h.showStreak=true;
+  let view='main';
+  const row=(icon,label,val,go,ph)=>`<button class="field row-btn" data-go="${go}"><span class="lb">${icon} ${label}</span><span class="rv ${val?'':'ph'}">${val?esc(val):(ph||'')} ›</span></button>`;
+  const tog=(icon,label,key)=>`<div class="field"><span class="lb">${icon} ${label}</span><button class="switch ${h[key]?'on':''}" data-tog="${key}" role="switch" aria-checked="${!!h[key]}" aria-label="${label}"></button></div>`;
+  const sub=(title,body)=>`<div class="grab"></div><div class="sh-head"><button class="iconbtn" data-go="main" aria-label="返回">‹</button><h2>${title}</h2><span style="width:40px"></span></div>${body}<button class="btn block" data-go="main" style="margin-top:14px">完成</button>`;
   const draw=()=>{
     const r=h.repeat;
-    let typeExtra='';
-    if(h.type==='count')typeExtra=`<div class="field"><label>每日目標</label><span><input class="mini num" data-f="target" type="number" min="1" value="${h.target||1}"></span></div><div class="field"><label>單位</label><input class="mini" data-f="unit" value="${esc(h.unit||'')}" placeholder="杯、頁"></div>`;
-    if(h.type==='number')typeExtra=`<div class="field"><label>單位</label><input class="mini" data-f="unit" value="${esc(h.unit||'')}" placeholder="kg、步"></div><div class="field"><label>目標值（選填）</label><input class="mini num" data-f="goal" type="number" step="any" value="${h.goal??''}"></div>`;
-    if(h.type==='time')typeExtra=`<div class="field"><label>目標時間（選填）</label><input class="mini num" data-f="goal" type="time" value="${h.goal??''}"></div>`;
-    return `<div class="grab"></div><div class="sh-head"><h2>${isNew?'新增習慣':'編輯習慣'}</h2><button class="iconbtn" data-close aria-label="關閉">✕</button></div>
-    <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px">
-      <input class="emo-in" data-f="emoji" value="${esc(h.emoji)}" maxlength="4" aria-label="圖示">
-      <input class="input" data-f="name" value="${esc(h.name)}" placeholder="習慣名稱" maxlength="30" style="flex:1;height:54px">
-    </div>
+    if(view==='type')return sub('記錄類型',`<div class="group">${Object.entries(TYPES).map(([k,l])=>`<button class="field row-btn" data-type="${k}"><span class="lb">${l}</span><span class="muted" style="font-size:.85rem">${TYPE_DESC[k]}</span>${h.type===k?'<span class="ck">✓</span>':'<span class="ck"> </span>'}</button>`).join('')}</div>`);
+    if(view==='count')return sub('習慣執行次數',`<div class="stepper"><button data-cnt="-1" aria-label="減少">−</button><span class="big num">${h.target||1}</span><button data-cnt="1" aria-label="增加">＋</button></div><div class="group"><div class="field"><label>單位</label><input class="mini" data-f="unit" value="${esc(h.unit||'')}" placeholder="次、杯、頁"></div></div>`);
+    if(view==='number')return sub('單位與目標',`<div class="group"><div class="field"><label>單位</label><input class="mini" data-f="unit" value="${esc(h.unit||'')}" placeholder="kg、步"></div><div class="field"><label>目標值（選填）</label><input class="mini num" data-f="goal" type="number" step="any" value="${h.goal??''}"></div></div>`);
+    if(view==='timegoal')return sub('目標時間',`<div class="group"><div class="field"><label>目標時間（選填）</label><input class="mini num" data-f="goal" type="time" value="${h.goal??''}"></div></div>`);
+    if(view==='repeat')return sub('重複週期',`<div class="group"><div class="field col"><div class="seg"><button class="${r.mode==='daily'?'on':''}" data-rep="daily">每天</button><button class="${r.mode==='days'?'on':''}" data-rep="days">指定星期</button><button class="${r.mode==='weekly'?'on':''}" data-rep="weekly">每週 N 次</button></div>
+        ${r.mode==='days'?`<div class="seg" style="margin-top:12px">${WD.map((w,i)=>`<button class="${r.days.includes(i)?'on':''}" data-wd="${i}">${w}</button>`).join('')}</div>`:''}
+        ${r.mode==='weekly'?`<div style="margin-top:12px">每週 <input class="mini num" data-f="rn" type="number" min="1" max="7" value="${r.n}" style="width:60px"> 次，哪天做都可以</div>`:''}</div></div>`);
+    if(view==='when')return sub('打算什麼時候執行？',`<div class="group"><div class="field"><input class="input" data-f="group" value="${esc(h.group||'')}" placeholder="ex) 8:00 / 上班路上" maxlength="12" style="border:0;padding:4px 0;background:transparent"></div></div><div class="sec-title">常用</div><div class="chips" style="flex-wrap:wrap">${S.cfg.groups.map(g=>`<button class="chip ${h.group===g?'on':''}" data-when="${esc(g)}">${esc(g)}</button>`).join('')}<button class="chip" data-when="">不指定</button></div><p class="muted" style="font-size:.85rem;margin:6px 4px 0">主頁會依這裡的時段排序，並顯示在最左欄</p>`);
+    if(view==='cat')return sub('目標標籤',`<div class="group">${['',...S.cfg.categories].map(c=>`<button class="field row-btn" data-cat="${esc(c)}"><span class="lb" style="font-weight:500">${c?esc(c):'不指定'}</span>${(h.category||'')===c?'<span class="ck">✓</span>':''}</button>`).join('')}</div><div class="addrow"><input class="input" id="newCat" placeholder="新增標籤，例如：🎨創作" maxlength="12"><button class="btn" data-newcat>新增</button></div>`);
+    if(view==='imp')return sub('重要度',`<div class="group">${IMP.map(([e,l],i)=>`<button class="field row-btn" data-imp="${i+1}"><span class="lb">${e} ${i+1}級</span><span class="muted">${l}</span>${h.importance===i+1?'<span class="ck">✓</span>':'<span class="ck"> </span>'}</button>`).join('')}</div><p class="muted" style="font-size:.85rem;margin:0 4px">同一時段內，重要度高的排在前面</p>`);
+    let typeRow='';
+    if(h.type==='count')typeRow=row('🔢','習慣執行次數',`${h.target||1}${h.unit||'次'}`,'count');
+    if(h.type==='number')typeRow=row('📏','單位與目標',[h.unit,(h.goal!=null&&h.goal!=='')?'目標 '+h.goal:''].filter(Boolean).join('・'),'number','設定');
+    if(h.type==='time')typeRow=row('🎯','目標時間',h.goal||'','timegoal','選填');
+    return `<div class="grab"></div><div class="sh-head"><button class="iconbtn" data-close aria-label="關閉">✕</button><h2>${isNew?'新增習慣':'編輯習慣'}</h2><span style="width:40px"></span></div>
+    <div class="sec-title" style="margin-top:0">習慣名稱</div>
+    <div style="display:flex;gap:10px;align-items:center"><input class="input" data-f="name" value="${esc(h.name)}" placeholder="例：空腹喝水" maxlength="30" style="flex:1;height:56px"><input class="emo-in" data-f="emoji" value="${esc(h.emoji)}" maxlength="16" aria-label="圖示"></div>
     <div class="emo-row">${EMOS.map(e=>`<button data-emo="${e}">${e}</button>`).join('')}</div>
-    <div class="group" style="margin-top:12px">
-      <div class="field col"><span class="lb">記錄類型</span><div class="seg">${Object.entries(TYPES).map(([k,l])=>`<button class="${h.type===k?'on':''}" data-type="${k}">${l}</button>`).join('')}</div></div>
-      ${typeExtra}
-    </div>
-    <div class="group">
-      <div class="field col"><span class="lb">重複週期</span><div class="seg">
-        <button class="${r.mode==='daily'?'on':''}" data-rep="daily">每天</button><button class="${r.mode==='days'?'on':''}" data-rep="days">指定星期</button><button class="${r.mode==='weekly'?'on':''}" data-rep="weekly">每週 N 次</button></div>
-        ${r.mode==='days'?`<div class="seg" style="margin-top:10px">${WD.map((w,i)=>`<button class="${r.days.includes(i)?'on':''}" data-wd="${i}">${w}</button>`).join('')}</div>`:''}
-        ${r.mode==='weekly'?`<div style="margin-top:10px">每週 <input class="mini num" data-f="rn" type="number" min="1" max="7" value="${r.n}" style="width:60px"> 次</div>`:''}
-      </div>
-      <div class="field"><label>時段</label><select class="mini" data-f="group"><option value="">不指定</option>${S.cfg.groups.map(g=>`<option ${h.group===g?'selected':''}>${esc(g)}</option>`).join('')}</select></div>
-      <div class="field"><label>作息計時預設</label><span><input class="mini num" data-f="duration" type="number" min="0" step="0.5" value="${h.duration??5}" style="width:64px"> 分鐘</span></div>
-    </div>
-    <div class="group"><div class="field col"><span class="lb">顏色</span><div class="sw">${HCOLORS.map(c=>`<button class="${h.color===c?'on':''}" data-col="${c}" style="background:${c}" aria-label="顏色"></button>`).join('')}</div></div></div>
-    <button class="btn block" data-save>儲存</button>
-    ${isNew?'':`<div style="display:flex;gap:8px;margin-top:8px"><button class="btn ghost" style="flex:1" data-arch>封存</button><button class="btn danger" style="flex:1" data-del>刪除</button></div>`}`;
+    <div class="group" style="margin-top:12px">${row('✔️','記錄類型',TYPES[h.type],'type')}${typeRow}${row('📅','重複週期',repeatLabel(r),'repeat')}${row('✅','打算什麼時候執行？',h.group||'','when','ex) 8:00/上班路上')}</div>
+    <div class="group">${h.type==='check'?`<div class="field"><span class="lb">⭕ Mini/Plus/Max</span><button class="switch ${h.levels.on?'on':''}" data-lvtog role="switch" aria-checked="${h.levels.on}" aria-label="Mini/Plus/Max"></button></div>${h.levels.on?`<div class="field col" style="gap:8px">${[[1,'mini','例：拉筋伸展（留空＝習慣名稱）'],[2,'plus','例：居家運動（選填）'],[3,'max','例：去健身房（選填）']].map(([l,k,ph])=>`<div class="lvin"><span class="lv" style="--c:${LV[l][1]}">${LV[l][0]}</span><input class="input" data-f="lv_${k}" value="${esc(h.levels[k]||'')}" placeholder="${ph}" maxlength="20" style="padding:9px 12px"></div>`).join('')}<p class="muted" style="font-size:.8rem;margin:0">主頁點一下＝完成 Mini，長按格子可選 Plus／Max</p></div>`:''}`:''}
+      ${row('🏷️','目標標籤',h.category||'','cat','不指定')}${tog('🖍️','螢光標記','highlight')}
+      ${h.highlight?`<div class="field col"><div class="hlprev" style="--hlc:${h.hlColor}"><span>${esc(h.group||'時段')}</span><span>${esc(h.emoji)} ${esc(h.name||'習慣名稱')}</span><span>${esc(h.emoji)}</span></div><div class="sw">${HLCOLORS.map(c=>`<button class="${h.hlColor===c?'on':''}" data-hl="${c}" style="background:${c};box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)" aria-label="螢光顏色"></button>`).join('')}</div></div>`:''}</div>
+    <div class="group">${row(IMP[(h.importance||1)-1][0],'重要度',(h.importance||1)+'級','imp')}
+      ${h.type==='check'?`<div class="field"><span class="lb">📊 追蹤模式</span><button class="switch ${h.track?'on':''}" data-trktog role="switch" aria-checked="${!!h.track}" aria-label="追蹤模式"></button></div>${h.track?`<div class="field col"><div class="seg"><button class="${h.track==='time'?'on':''}" data-trk="time">記錄時間</button><button class="${h.track==='number'?'on':''}" data-trk="number">記錄數值</button></div>${h.track==='number'?`<div style="margin-top:10px">單位 <input class="mini" data-f="trackUnit" value="${esc(h.trackUnit||'')}" placeholder="頁、分鐘"></div>`:''}<p class="muted" style="font-size:.8rem;margin:8px 0 0">${h.track==='time'?'打勾時自動記下當下時間，格子會顯示例如 12:30':'打勾時輸入數值，例如閱讀頁數，統計頁會畫成趨勢圖'}</p></div>`:''}`:''}
+      ${tog('🔥','連續成就','showStreak')}</div>
+    <div class="group"><div class="field"><label for="startD">🗓️ 開始日期</label><input id="startD" class="mini num" type="date" data-f="createdAt" value="${h.createdAt}" style="width:auto"></div>
+      <div class="field col"><span class="lb">🎨 顏色</span><div class="sw">${HCOLORS.map(c=>`<button class="${h.color===c?'on':''}" data-col="${c}" style="background:${c}" aria-label="顏色"></button>`).join('')}</div></div></div>
+    ${isNew?'':`<div style="display:flex;gap:8px"><button class="btn ghost" style="flex:1" data-arch>封存</button><button class="btn danger" style="flex:1" data-del>刪除</button></div>`}
+    <div class="savebar"><button class="btn block" data-save>儲存</button></div>`;
   };
   const sync=sh=>{sh.querySelectorAll('[data-f]').forEach(el=>{const f=el.dataset.f,val=el.value;
     if(f==='rn')h.repeat.n=Math.max(1,Math.min(7,Number(val)||1));
-    else if(f==='target')h.target=Math.max(1,Number(val)||1);
     else if(f==='duration')h.duration=Math.max(0,Number(val)||0);
     else if(f==='goal')h.goal=val===''?undefined:(h.type==='number'?Number(val):val);
+    else if(f.startsWith('lv_'))h.levels[f.slice(3)]=val;
     else h[f]=val;})};
   openSheet(draw(),sh=>{
     sh.onclick=e=>{
       const t=e.target.closest('button');if(!t)return;
       sync(sh);
       if(t.hasAttribute('data-close'))return closeSheet();
-      if(t.dataset.emo){h.emoji=t.dataset.emo}
-      if(t.dataset.type){h.type=t.dataset.type;h.goal=undefined}
-      if(t.dataset.rep)h.repeat.mode=t.dataset.rep;
-      if(t.dataset.wd){const i=Number(t.dataset.wd),a=h.repeat.days;a.includes(i)?a.splice(a.indexOf(i),1):a.push(i)}
-      if(t.dataset.col)h.color=t.dataset.col;
+      const D=t.dataset;let keep=true;
+      if(D.go){view=D.go;keep=false}
+      if(D.emo)h.emoji=D.emo;
+      if(D.type){h.type=D.type;h.goal=undefined}
+      if(D.cnt)h.target=Math.max(1,(h.target||1)+Number(D.cnt));
+      if(D.rep)h.repeat.mode=D.rep;
+      if(D.wd){const i=Number(D.wd),a=h.repeat.days;a.includes(i)?a.splice(a.indexOf(i),1):a.push(i)}
+      if(D.when!==undefined)h.group=D.when;
+      if(D.cat!==undefined)h.category=D.cat;
+      if(t.hasAttribute('data-newcat')){const v=sh.querySelector('#newCat').value.trim();if(!v)return;if(!S.cfg.categories.includes(v)){S.cfg.categories.push(v);saveCfg()}h.category=v}
+      if(D.imp)h.importance=Number(D.imp);
+      if(D.tog)h[D.tog]=!h[D.tog];
+      if(D.col)h.color=D.col;
+      if(D.hl)h.hlColor=D.hl;
+      if(t.hasAttribute('data-lvtog'))h.levels.on=!h.levels.on;
+      if(t.hasAttribute('data-trktog'))h.track=h.track?'':'time';
+      if(D.trk)h.track=D.trk;
       if(t.hasAttribute('data-save')){
         if(!h.name.trim()){toast('請輸入習慣名稱');return}
-        if(h.repeat.mode==='days'&&!h.repeat.days.length){toast('至少選一天');return}
-        h.name=h.name.trim();h.emoji=h.emoji.trim()||'✅';
+        if(h.repeat.mode==='days'&&!h.repeat.days.length){toast('重複週期至少選一天');return}
+        h.name=h.name.trim();h.emoji=firstG(h.emoji)||'✅';h.group=(h.group||'').trim();
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(h.createdAt||''))h.createdAt=todayS();
+        ['mini','plus','max'].forEach(k=>h.levels[k]=(h.levels[k]||'').trim());
+        if(h.group&&!S.cfg.groups.includes(h.group))S.cfg.groups.push(h.group);
         if(isNew){h.order=S.cfg.habits.length;S.cfg.habits.push(h)}else{S.cfg.habits[S.cfg.habits.findIndex(x=>x.id===h.id)]=h}
         saveCfg();closeSheet();render();toast(isNew?'已新增習慣':'已儲存');return;
       }
       if(t.hasAttribute('data-arch')){H(h.id).archived=true;saveCfg();closeSheet();render();toast('已封存，可在設定中還原');return}
       if(t.hasAttribute('data-del')){if(!confirm(`刪除「${h.name}」？過去的紀錄不會出現在統計中。`))return;S.cfg.habits=S.cfg.habits.filter(x=>x.id!==h.id);S.cfg.routines.forEach(r=>r.steps=r.steps.filter(s=>s.hid!==h.id));saveCfg();closeSheet();render();return}
-      const st=sh.scrollTop;sh.innerHTML=draw();sh.scrollTop=st;
+      const st=keep?sh.scrollTop:0;sh.innerHTML=draw();sh.scrollTop=st;
     };
   });
 }
 
+/* ============ ACHIEVEMENTS ============ */
+const MS_STREAK=[7,21,30,66,100],MS_TOTAL=[10,50,100],MS_PERFECT=[1,7,30,100];
+function allDates(){const s=new Set();for(const ym in S.logs)Object.keys((S.logs[ym]&&S.logs[ym].days)||{}).forEach(d=>s.add(d));return [...s]}
+function totalDone(h){let n=0;for(const ym in S.logs){const days=(S.logs[ym]&&S.logs[ym].days)||{};for(const d in days)if(isDone(h,days[d][h.id]))n++}return n}
+function isPerfect(d){let tot=0,dn=0;activeHabits().forEach(h=>{if((h.repeat||{}).mode==='weekly'||!scheduled(h,d))return;tot++;if(isDone(h,getVal(d,h.id)))dn++});return tot>0&&dn===tot}
+function perfectDays(){const t=todayS();return allDates().filter(d=>d<=t&&isPerfect(d)).length}
+function checkAch(){
+  const A=S.cfg.achievements||(S.cfg.achievements={}),today=todayS(),newly=[];
+  const unlock=(k,item)=>{if(!A[k]){A[k]=today;newly.push(item)}};
+  activeHabits().forEach(h=>{
+    if((h.repeat||{}).mode!=='weekly'){const s=streak(h,today).n;MS_STREAK.forEach(m=>{if(s>=m)unlock(`s:${h.id}:${m}`,{icon:'🔥',title:`${h.emoji} ${h.name}`,desc:`連續 ${m} 天`})})}
+    const t=totalDone(h);MS_TOTAL.forEach(m=>{if(t>=m)unlock(`t:${h.id}:${m}`,{icon:'🏅',title:`${h.emoji} ${h.name}`,desc:`累計完成 ${m} 次`})});
+  });
+  const p=perfectDays();MS_PERFECT.forEach(m=>{if(p>=m)unlock(`p:${m}`,{icon:'🌟',title:'全勤日',desc:m===1?'第一次全部完成':`累計 ${m} 天全部完成`})});
+  if(newly.length){saveCfg();celebrate(newly)}
+}
+const celQ=[];let celBusy=false;
+function celebrate(items){celQ.push(...items);if(!celBusy)nextCel()}
+function nextCel(){const c=$('#cele');if(!celQ.length){celBusy=false;return}celBusy=true;const it=celQ.shift();
+  c.innerHTML=`<span class="ce-ic">${it.icon}</span><div><b>解鎖成就：${esc(it.desc)}</b><div class="muted" style="font-size:.88rem">${esc(it.title)}　大棒了！👏</div></div>`;
+  c.classList.add('show');if(navigator.vibrate)navigator.vibrate(60);
+  setTimeout(()=>{c.classList.remove('show');setTimeout(nextCel,350)},2600)}
+function renderAchievements(){
+  const A=S.cfg.achievements||{},today=todayS(),hs=activeHabits(),p=perfectDays();
+  const badge=(on,icon,label,prog)=>`<div class="badge ${on?'on':''}"><span class="bi">${icon}</span><span class="bl num">${label}</span><span class="bp num">${on?'已解鎖':prog}</span></div>`;
+  const best=Math.max(0,...hs.map(x=>(x.repeat||{}).mode==='weekly'?0:streak(x,today).n));
+  let h=`<div class="card"><div class="kpis"><div class="kpi"><b class="num">${Object.keys(A).length}</b><small>已解鎖成就</small></div><div class="kpi"><b class="num">${p}</b><small>全勤天數</small></div><div class="kpi"><b class="num">${best}</b><small>最長連續中</small></div></div></div>`;
+  h+=`<div class="card"><h3>🌟 全勤日</h3><div class="bsub muted">當天排定的習慣全部完成</div><div class="badges">${MS_PERFECT.map(m=>badge(A['p:'+m],'🌟',m+'天',`${Math.min(p,m)}/${m}`)).join('')}</div></div>`;
+  hs.forEach(x=>{const wk=(x.repeat||{}).mode==='weekly',s=wk?0:streak(x,today).n,t=totalDone(x);
+    h+=`<div class="card"><h3>${esc(x.emoji)} ${esc(x.name)}</h3>${wk?'':`<div class="bsub muted">連續天數（目前 ${s} 天）</div><div class="badges">${MS_STREAK.map(m=>badge(A[`s:${x.id}:${m}`],'🔥',m+'天',`${Math.min(s,m)}/${m}`)).join('')}</div>`}<div class="bsub muted">累計完成（目前 ${t} 次）</div><div class="badges">${MS_TOTAL.map(m=>badge(A[`t:${x.id}:${m}`],'🏅',m+'次',`${Math.min(t,m)}/${m}`)).join('')}</div></div>`});
+  return h;
+}
+
 /* ============ ROUTINES ============ */
 function renderRoutines(){
-  let h=`<h1>作息</h1>`;
+  let h=`<div class="top"><h1 style="margin:0">作息</h1><button class="iconbtn" data-act="rinfo" aria-label="什麼是作息">ⓘ</button></div>`;
   if(!S.cfg.routines.length)return h+`<div class="empty"><div style="font-size:2.4rem">⏱️</div><h3>把連續的習慣串成一段作息</h3><p class="muted">例如「喝水 → 刷牙 → 伸展」，開始後計時器會依序帶你完成，做完自動打勾。</p><button class="btn" data-act="newRoutine" ${activeHabits().length?'':'disabled'}>建立作息</button>${activeHabits().length?'':'<p class="muted" style="font-size:.85rem">先到「今天」新增習慣</p>'}</div>`;
   S.cfg.routines.forEach(r=>{
     const secs=r.steps.reduce((a,s)=>a+s.sec,0);
     const today=todayS(),doneN=r.steps.filter(s=>H(s.hid)&&isDone(H(s.hid),getVal(today,s.hid))).length;
-    h+=`<div class="rcard"><div class="rt"><span class="em">${esc(r.emoji)}</span><div style="flex:1"><div style="font-weight:800;font-size:1.1rem">${esc(r.name)}</div><div class="muted num" style="font-size:.88rem">${r.steps.length} 個步驟 · 約 ${Math.round(secs/60)} 分鐘 · 今日 ${doneN}/${r.steps.length}</div></div><button class="iconbtn" data-act="editRoutine" data-id="${r.id}" aria-label="編輯">✎</button></div>
+    h+=`<div class="rcard"><div class="rt"><span class="em">${esc(r.emoji)}</span><div style="flex:1"><div style="font-weight:800;font-size:1.1rem">${esc(r.name)}</div><div class="muted num" style="font-size:.88rem">${[r.group,r.steps.length+' 個步驟',r.timer!==false?'約 '+Math.round(secs/60)+' 分鐘':'不計時','今日 '+doneN+'/'+r.steps.length].filter(Boolean).join(' · ')}</div></div><button class="iconbtn" data-act="editRoutine" data-id="${r.id}" aria-label="編輯">✎</button></div>
       <div class="steps">${r.steps.map(s=>{const x=H(s.hid);return x?`<span>${esc(x.emoji)} ${esc(x.name)}</span>`:''}).join('')}</div>
-      <button class="btn block" data-act="startRoutine" data-id="${r.id}" ${r.steps.length?'':'disabled'}>▶ 開始</button></div>`;
+      ${r.timer!==false?`<button class="btn block" data-act="startRoutine" data-id="${r.id}" ${r.steps.length?'':'disabled'}>▶ 開始計時</button>`:'<p class="muted" style="margin:0;font-size:.85rem">不計時作息：在主頁依序打勾即可</p>'}</div>`;
   });
   return h;
 }
+function routineInfoHTML(){
+  const pill=(n,t,hl)=>`<div class="ipill ${hl?'hl':''}"><b>${n}</b>${t}</div>`;
+  return `<div class="info">
+  <p>作息是把幾個習慣<b>照固定順序串在一起</b>，每天重複做。例如早上起床後：喝水 → 刷牙 → 吃早餐。</p>
+  <h3>1. 先決定什麼時候開始</h3><div class="ibox"><span class="itag">午餐後</span>→<span class="itag dark">吃營養補充品</span></div>
+  <p>事先決定「什麼時候做」，比單靠意志力有效。作息只要第一步順利開始，後面的步驟就容易接下去。</p>
+  <h3>2. 接在已經在做的事後面</h3><div class="ibox col">${pill(1,'已經習慣的事',true)}＋${pill(2,'新習慣 1')}${pill(3,'新習慣 2')}</div>
+  <p>例如「一下床」＋「伸展」。用已經養成的行為當提示，新習慣比較不會忘記。</p>
+  <h3>3. 一次串一點，慢慢加長</h3><div class="ibox col">${pill(1,'伸展')}${pill(2,'喝水')}${pill(3,'吃營養補充品')}</div>
+  <p>這種做法叫「習慣堆疊」。先把兩三個串穩，再往後加新的。</p>
+  <h3>4. 把困難的習慣拆小</h3><div class="ibox"><span class="itag dark">運動</span>→<div style="display:flex;flex-direction:column;gap:8px">${pill(1,'穿上運動服')}${pill(2,'穿上運動鞋')}${pill(3,'運動 10 分鐘')}</div></div>
+  <p>很難開始的事，拆成幾個很小的動作放進作息，一步步完成。在作息編輯畫面可以直接建立這些小步驟。</p></div>`;
+}
 function openRoutineEditor(id){
   const isNew=!id;
-  const r=isNew?{id:uid(),name:'',emoji:'🌅',steps:[]}:clone(S.cfg.routines.find(x=>x.id===id));
-  const draw=()=>`<div class="grab"></div><div class="sh-head"><h2>${isNew?'建立作息':'編輯作息'}</h2><button class="iconbtn" data-close aria-label="關閉">✕</button></div>
-    <div style="display:flex;gap:10px;margin-bottom:12px"><input class="emo-in" data-f="emoji" value="${esc(r.emoji)}" maxlength="4" aria-label="圖示"><input class="input" data-f="name" value="${esc(r.name)}" placeholder="作息名稱，例如：晨間作息" style="flex:1;height:54px"></div>
-    <div class="group">${r.steps.length?r.steps.map((s,i)=>{const x=H(s.hid);return `<div class="stepedit"><span class="num muted">${i+1}</span><span class="nm">${x?esc(x.emoji+' '+x.name):'（已刪除）'}</span><input class="mini num" data-sec="${i}" type="number" min="0.5" step="0.5" value="${s.sec/60}" style="width:58px" aria-label="分鐘"><span class="muted" style="font-size:.8rem">分</span><button data-up="${i}" aria-label="上移">↑</button><button data-rm="${i}" aria-label="移除">✕</button></div>`}).join(''):'<p class="muted">下方點選習慣加入步驟</p>'}</div>
-    <div class="sec-title">加入步驟</div>
-    <div class="chips" style="flex-wrap:wrap">${activeHabits().map(x=>`<button class="chip" data-add="${x.id}">${esc(x.emoji)} ${esc(x.name)}</button>`).join('')}</div>
-    <button class="btn block" data-save style="margin-top:12px">儲存</button>
-    ${isNew?'':'<button class="btn danger block" data-del style="margin-top:6px">刪除作息</button>'}`;
+  const r=isNew?{id:uid(),name:'',emoji:'🌅',steps:[],group:'',timer:true,highlight:false,hlColor:'#FFF3A3'}:clone(S.cfg.routines.find(x=>x.id===id));
+  if(r.timer==null)r.timer=true;r.hlColor=r.hlColor||'#FFF3A3';r.group=r.group||'';
+  const usedElse=new Set();S.cfg.routines.forEach(o=>{if(o.id!==r.id)o.steps.forEach(st=>usedElse.add(st.hid))});
+  let view='main';
+  const sub=(title,body)=>`<div class="grab"></div><div class="sh-head"><button class="iconbtn" data-go="main" aria-label="返回">‹</button><h2>${title}</h2><span style="width:40px"></span></div>${body}<button class="btn block" data-go="main" style="margin-top:14px">${view==='info'?'知道了':'完成'}</button>`;
+  const draw=()=>{
+    if(view==='info')return sub('什麼是作息？',routineInfoHTML());
+    if(view==='when')return sub('打算什麼時候執行？',`<div class="group"><div class="field"><input class="input" data-f="group" value="${esc(r.group)}" placeholder="ex) 8:00 / 上班路上" maxlength="12" style="border:0;padding:4px 0;background:transparent"></div></div><div class="sec-title">常用</div><div class="chips" style="flex-wrap:wrap">${S.cfg.groups.map(g=>`<button class="chip ${r.group===g?'on':''}" data-when="${esc(g)}">${esc(g)}</button>`).join('')}<button class="chip" data-when="">不指定</button></div>`);
+    if(view==='add'){const inR=new Set(r.steps.map(st=>st.hid)),cand=activeHabits().filter(x=>!usedElse.has(x.id));
+      return sub('新增習慣',`<div class="sec-title" style="margin-top:0">建立新習慣</div>
+        <div class="addrow"><input class="emo-in" id="nhE" value="✅" maxlength="16" style="width:50px;height:50px;font-size:1.4rem;flex:none" aria-label="圖示"><input class="input" id="nhN" placeholder="例：穿上運動鞋" maxlength="30"><button class="btn" data-newh>新增</button></div>
+        <p class="muted" style="font-size:.8rem;margin:-4px 4px 8px">會建立一個打勾型習慣並加到作息最後，之後可以在主頁點名稱調整細節</p>
+        <div class="sec-title">從現有習慣加入</div><div class="group">${cand.length?cand.map(x=>`<button class="field row-btn" data-add="${x.id}"><span class="lb" style="font-weight:500">${esc(x.emoji)} ${esc(x.name)}</span>${inR.has(x.id)?'<span class="ck">✓</span>':'<span class="muted">＋</span>'}</button>`).join(''):'<p class="muted">沒有可加入的習慣</p>'}</div>
+        <p class="muted" style="font-size:.8rem;margin:0 4px">點一下加入，再點一下取消。已在其他作息裡的習慣不會出現在這裡</p>`);}
+    const secs=r.steps.reduce((a,st)=>a+st.sec,0);
+    return `<div class="grab"></div><div class="sh-head"><button class="iconbtn" data-close aria-label="關閉">✕</button><h2>${isNew?'新增作息':'編輯作息'}</h2><button class="iconbtn" data-go="info" aria-label="什麼是作息">ⓘ</button></div>
+    <div class="sec-title" style="margin-top:0">作息名稱</div>
+    <div style="display:flex;gap:10px;align-items:center"><input class="input" data-f="name" value="${esc(r.name)}" placeholder="例：晨間作息" maxlength="20" style="flex:1;height:56px"><input class="emo-in" data-f="emoji" value="${esc(r.emoji)}" maxlength="16" aria-label="圖示"></div>
+    <div class="group" style="margin-top:12px"><button class="field row-btn" data-go="when"><span class="lb">✅ 打算什麼時候執行？</span><span class="rv ${r.group?'':'ph'}">${r.group?esc(r.group):'ex) 8:00/上班路上'} ›</span></button></div>
+    <div class="group"><div class="field"><span class="lb">⏱️ 計時器</span><button class="switch ${r.timer?'on':''}" data-rtimer role="switch" aria-checked="${r.timer}" aria-label="計時器"></button></div>
+      <div class="field"><span class="lb">🔁 習慣列表</span><span class="muted num">${r.timer?Math.round(secs/60*10)/10+' 分鐘':r.steps.length+' 項'}</span></div>
+      ${r.steps.map((st,i)=>{const x=H(st.hid);return `<div class="stepedit"><span class="num muted">${i+1}</span><span class="nm">${x?esc(x.emoji+' '+x.name):'（已刪除）'}</span>${r.timer?`<input class="mini num" data-sec="${i}" type="number" min="0.5" step="0.5" value="${st.sec/60}" style="width:58px" aria-label="分鐘"><span class="muted" style="font-size:.8rem">分</span>`:''}<button data-up="${i}" aria-label="上移">↑</button><button data-rm="${i}" aria-label="移除">✕</button></div>`}).join('')}
+      <button class="addbox" data-go="add">＋ 新增習慣來建立作息</button>
+      <p class="muted" style="font-size:.8rem;margin:8px 0 12px">${r.timer?'開始後依序倒數，時間到自動打勾並進入下一步':'不計時，在主頁依序打勾即可'}</p></div>
+    <div class="group"><div class="field"><span class="lb">🖍️ 螢光標記</span><button class="switch ${r.highlight?'on':''}" data-rhl role="switch" aria-checked="${r.highlight}" aria-label="螢光標記"></button></div>
+      ${r.highlight?`<div class="field col"><div class="hlprev" style="--hlc:${r.hlColor}"><span>${esc(r.group||'時段')}</span><span>${esc(r.emoji)} ${esc(r.name||'作息名稱')}</span><span>${esc(r.emoji)}</span></div><div class="sw">${HLCOLORS.map(c=>`<button class="${r.hlColor===c?'on':''}" data-hl="${c}" style="background:${c};box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)" aria-label="螢光顏色"></button>`).join('')}</div></div>`:''}</div>
+    ${isNew?'':'<button class="btn danger block" data-del>刪除作息</button>'}
+    <div class="savebar"><button class="btn block" data-save>儲存</button></div>`;
+  };
   const sync=sh=>{sh.querySelectorAll('[data-f]').forEach(el=>r[el.dataset.f]=el.value);sh.querySelectorAll('[data-sec]').forEach(el=>{r.steps[el.dataset.sec].sec=Math.max(30,Math.round((Number(el.value)||0.5)*60))})};
   openSheet(draw(),sh=>{
     sh.onclick=e=>{
       const t=e.target.closest('button');if(!t)return;sync(sh);
       if(t.hasAttribute('data-close'))return closeSheet();
-      if(t.dataset.add){const x=H(t.dataset.add);r.steps.push({hid:x.id,sec:Math.max(30,Math.round((x.duration||5)*60))})}
-      if(t.dataset.rm)r.steps.splice(Number(t.dataset.rm),1);
-      if(t.dataset.up){const i=Number(t.dataset.up);if(i>0)[r.steps[i-1],r.steps[i]]=[r.steps[i],r.steps[i-1]]}
-      if(t.hasAttribute('data-save')){if(!r.name.trim()){toast('請輸入作息名稱');return}if(!r.steps.length){toast('至少加入一個步驟');return}
-        if(isNew)S.cfg.routines.push(r);else S.cfg.routines[S.cfg.routines.findIndex(x=>x.id===r.id)]=r;saveCfg();closeSheet();render();return}
-      if(t.hasAttribute('data-del')){if(!confirm('刪除這個作息？習慣本身會保留。'))return;S.cfg.routines=S.cfg.routines.filter(x=>x.id!==r.id);saveCfg();closeSheet();render();return}
-      const st=sh.scrollTop;sh.innerHTML=draw();sh.scrollTop=st;
+      const D=t.dataset;let keep=true;
+      if(D.go){view=D.go;keep=false}
+      if(D.add){if(r.steps.some(st=>st.hid===D.add))r.steps=r.steps.filter(st=>st.hid!==D.add);else r.steps.push({hid:D.add,sec:300})}
+      if(t.hasAttribute('data-newh')){const n=sh.querySelector('#nhN').value.trim();if(!n){toast('請輸入習慣名稱');return}
+        const nh={id:uid(),name:n,emoji:firstG(sh.querySelector('#nhE').value)||'✅',type:'check',color:HCOLORS[S.cfg.habits.length%HCOLORS.length],repeat:{mode:'daily',n:3,days:[1,2,3,4,5]},group:'',category:'',target:1,unit:'',importance:1,showStreak:true,highlight:false,hlColor:'#FFF3A3',track:'',trackUnit:'',levels:{on:false,mini:'',plus:'',max:''},createdAt:todayS(),order:S.cfg.habits.length};
+        S.cfg.habits.push(nh);r.steps.push({hid:nh.id,sec:300});saveCfg();toast(`已建立「${n}」並加入`)}
+      if(D.rm)r.steps.splice(Number(D.rm),1);
+      if(D.up){const i=Number(D.up);if(i>0)[r.steps[i-1],r.steps[i]]=[r.steps[i],r.steps[i-1]]}
+      if(D.when!==undefined)r.group=D.when;
+      if(t.hasAttribute('data-rtimer'))r.timer=!r.timer;
+      if(t.hasAttribute('data-rhl'))r.highlight=!r.highlight;
+      if(D.hl)r.hlColor=D.hl;
+      if(t.hasAttribute('data-save')){
+        if(!r.name.trim()){toast('請輸入作息名稱');return}if(!r.steps.length){toast('至少加入一個習慣');return}
+        r.name=r.name.trim();r.emoji=firstG(r.emoji)||'🌅';r.group=(r.group||'').trim();
+        if(r.group&&!S.cfg.groups.includes(r.group))S.cfg.groups.push(r.group);
+        if(isNew)S.cfg.routines.push(r);else S.cfg.routines[S.cfg.routines.findIndex(x=>x.id===r.id)]=r;
+        saveCfg();closeSheet();render();toast(isNew?'已建立作息，主頁會顯示這個作息':'已儲存');return}
+      if(t.hasAttribute('data-del')){if(!confirm('刪除這個作息？裡面的習慣會保留，回到主頁單獨顯示。'))return;S.cfg.routines=S.cfg.routines.filter(x=>x.id!==r.id);saveCfg();closeSheet();render();return}
+      const st=keep?sh.scrollTop:0;sh.innerHTML=draw();sh.scrollTop=st;
     };
   });
 }
@@ -628,7 +866,7 @@ function tickLoop(){clearInterval(T.iv);T.iv=setInterval(()=>{if(!T.running)retu
 function stepDone(markIt){
   const s=T.r.steps[T.i],h=H(s.hid),today=todayS();
   if(markIt&&h){
-    if(h.type==='check')setVal(today,h.id,true);
+    if(h.type==='check'){if(!isDone(h,getVal(today,h.id)))setVal(today,h.id,makeCheck(h,{l:lvOn(h)?1:undefined}))}
     else if(h.type==='count'){const v=Number(getVal(today,h.id))||0;setVal(today,h.id,v+1)}
     T.fin.push(T.i);
   }
@@ -662,11 +900,12 @@ $('#timer').addEventListener('click',e=>{
 /* ============ STATS ============ */
 function habitMonthStats(h,ym){
   const [y,m]=ym.split('-').map(Number),n=new Date(y,m,0).getDate(),today=todayS();
-  let sched=0,done=0,best=0,run=0,vals=[];
+  let sched=0,done=0,best=0,run=0,vals=[],lv=[0,0,0,0];
   for(let i=1;i<=n;i++){
     const d=ym+'-'+pad(i);if(d>today)break;
     const v=getVal(d,h.id);
-    if(v!==undefined&&(h.type==='number'||h.type==='time'||h.type==='rating'))vals.push({d:i,v});
+    const tv=trackVal(h,v);if(tv!==undefined&&tv!==null&&tv!=='')vals.push({d:i,v:tv});
+    if(lvOn(h)){const o=cv(v);if(o&&o.d)lv[o.l||1]++}
     if(isDone(h,v))done++;
     if((h.repeat||{}).mode!=='weekly'&&scheduled(h,d)){sched++;if(isDone(h,v)){run++;best=Math.max(best,run)}else run=0}
   }
@@ -676,7 +915,7 @@ function habitMonthStats(h,ym){
     const effDays=Math.max(0,days-start+1);
     sched=Math.max(1,Math.round((h.repeat.n||1)*effDays/7));done=Math.min(done,sched);
   }
-  return {sched,done,rate:sched?done/sched:0,best,vals};
+  return {sched,done,rate:sched?done/sched:0,best,vals,lv};
 }
 const t2m=t=>{const[a,b]=String(t).split(':').map(Number);return a*60+b};
 const m2t=m=>pad(Math.floor(m/60))+':'+pad(Math.round(m%60));
@@ -699,16 +938,18 @@ function lineChart(points,{h=120,yFmt=v=>v,color='var(--accent)',goal,max,min}={
 function renderStats(){
   const ym=S.ui.statsMonth,[y,m]=ym.split('-').map(Number),n=new Date(y,m,0).getDate(),today=todayS();
   const hs=activeHabits();
-  let h=`<h1>統計</h1><div class="tabs"><button class="${S.ui.statsMode==='month'?'on':''}" data-act="statsMode" data-v="month">每月</button><button class="${S.ui.statsMode==='week'?'on':''}" data-act="statsMode" data-v="week">每週</button></div>`;
+  let h=`<h1>統計</h1><div class="tabs"><button class="${S.ui.statsMode==='month'?'on':''}" data-act="statsMode" data-v="month">每月</button><button class="${S.ui.statsMode==='week'?'on':''}" data-act="statsMode" data-v="week">每週</button><button class="${S.ui.statsMode==='ach'?'on':''}" data-act="statsMode" data-v="ach">成就</button></div>`;
   if(!hs.length)return h+`<div class="empty"><p class="muted" style="margin:0">新增習慣並記錄幾天後，這裡會出現分析</p></div>`;
   if(S.ui.statsMode==='week')return h+renderWeekStats();
+  if(S.ui.statsMode==='ach')return h+renderAchievements();
   h+=`<div class="mnav"><button data-act="statsMonth" data-d="-1" aria-label="上個月">‹</button><span class="num">${y}年${m}月</span><button data-act="statsMonth" data-d="1" aria-label="下個月" ${ym>=ymOf(today)?'disabled style="opacity:.3"':''}>›</button></div>`;
   const per=hs.map(x=>({h:x,s:habitMonthStats(x,ym)}));
   const tS=per.reduce((a,p)=>a+p.s.sched,0),tD=per.reduce((a,p)=>a+p.s.done,0);
-  let perfect=0,wdS=Array(7).fill(0),wdD=Array(7).fill(0),grp={};
+  let perfect=0,wdS=Array(7).fill(0),wdD=Array(7).fill(0),grp={},cat={};
   for(let i=1;i<=n;i++){const d=ym+'-'+pad(i);if(d>today)break;let tot=0,dn=0;
     hs.forEach(x=>{if((x.repeat||{}).mode==='weekly'||!scheduled(x,d))return;tot++;const ok=isDone(x,getVal(d,x.id));if(ok)dn++;const wd=pd(d).getDay();wdS[wd]++;if(ok)wdD[wd]++;
-      const g=x.group||'未分時段';grp[g]=grp[g]||[0,0];grp[g][0]++;if(ok)grp[g][1]++});
+      const g=x.group||'未分時段';grp[g]=grp[g]||[0,0];grp[g][0]++;if(ok)grp[g][1]++;
+      const ct=x.category||'未分類';cat[ct]=cat[ct]||[0,0];cat[ct][0]++;if(ok)cat[ct][1]++});
     if(tot&&dn===tot)perfect++}
   const bestNow=hs.map(x=>({x,s:streak(x,today)})).sort((a,b)=>b.s.n-a.s.n)[0];
   h+=`<div class="card"><div class="kpis"><div class="kpi"><b class="num">${tS?Math.round(tD/tS*100):0}<small>%</small></b><small>本月達成率</small></div><div class="kpi"><b class="num">${perfect}</b><small>全勤天數</small></div><div class="kpi"><b class="num">${bestNow?bestNow.s.n:0}</b><small>最長連續中${bestNow&&bestNow.s.n?'<br>'+esc(bestNow.x.emoji+bestNow.x.name):''}</small></div></div></div>`;
@@ -722,6 +963,8 @@ function renderStats(){
   h+=`<div class="card"><h3>星期幾表現</h3><div class="bars">${order.map(i=>{const v=wr[i];return `<div class="b ${v!==null&&v<.5?'low':''}"><span class="num" style="color:var(--ink)">${v===null?'':Math.round(v*100)}</span><i style="height:${v===null?0:Math.max(4,v*90)}px"></i><span>${WD[i]}</span></div>`}).join('')}</div>${ins?`<div class="insight">${ins}</div>`:''}</div>`;
   const gk=Object.keys(grp);
   if(gk.length>1)h+=`<div class="card"><h3>各時段達成率</h3>${gk.sort((a,b)=>grp[a][1]/grp[a][0]-grp[b][1]/grp[b][0]).map(g=>{const r=grp[g][1]/grp[g][0];return `<div class="hbar"><span>${esc(g)}</span><div class="bar"><i style="width:${r*100}%"></i></div><span class="num">${Math.round(r*100)}%</span></div>`}).join('')}</div>`;
+  const ck=Object.keys(cat);
+  if(ck.length>1)h+=`<div class="card"><h3>各標籤達成率</h3>${ck.sort((a,b)=>cat[a][1]/cat[a][0]-cat[b][1]/cat[b][0]).map(g=>{const r=cat[g][1]/cat[g][0];return `<div class="hbar" style="grid-template-columns:96px 1fr 42px"><span>${esc(g)}</span><div class="bar"><i style="width:${r*100}%"></i></div><span class="num">${Math.round(r*100)}%</span></div>`}).join('')}</div>`;
   // per habit
   const first=new Date(y,m-1,1).getDay(),lead=(first-S.cfg.settings.weekStart+7)%7;
   per.forEach(({h:x,s})=>{
@@ -730,10 +973,11 @@ function renderStats(){
       let bg='';if(dn)bg=`background:${x.color};color:#1E2B22`;else if(x.type==='count'&&v)bg=`background:${soft(x.color)};color:var(--ink)`;
       cal+=`<div class="num ${off&&!dn?'off':''}" style="${bg}${fut?';opacity:.4':''}">${i}</div>`}
     const st=streak(x,today);
-    let extra='';
-    if(x.type==='number'&&s.vals.length){const vs=s.vals.map(p=>p.v);extra=`<div style="margin-top:14px">${lineChart(s.vals.map(p=>({x:p.d,y:p.v,label:m+'/'+p.d})),{color:x.color,goal:x.goal,yFmt:v=>Math.round(v*10)/10})}</div><div class="hstat"><span>最新 <b class="num">${vs[vs.length-1]}</b> ${esc(x.unit||'')}</span><span>平均 <b class="num">${Math.round(vs.reduce((a,b)=>a+b,0)/vs.length*10)/10}</b></span><span>變化 <b class="num">${(vs[vs.length-1]-vs[0]>0?'+':'')+Math.round((vs[vs.length-1]-vs[0])*10)/10}</b></span></div>`}
-    if(x.type==='time'&&s.vals.length){const ms=s.vals.map(p=>t2m(p.v));extra=`<div style="margin-top:14px">${lineChart(s.vals.map((p,i)=>({x:p.d,y:ms[i],label:m+'/'+p.d})),{color:x.color,goal:x.goal?t2m(x.goal):undefined,yFmt:m2t})}</div><div class="hstat"><span>平均 <b class="num">${m2t(ms.reduce((a,b)=>a+b,0)/ms.length)}</b></span><span>最早 <b class="num">${m2t(Math.min(...ms))}</b></span><span>最晚 <b class="num">${m2t(Math.max(...ms))}</b></span></div>`}
-    if(x.type==='rating'&&s.vals.length){const avg=s.vals.reduce((a,b)=>a+b.v,0)/s.vals.length;extra=`<div style="margin-top:14px">${lineChart(s.vals.map(p=>({x:p.d,y:p.v,label:m+'/'+p.d})),{color:x.color,min:1,max:5,yFmt:v=>RATE[Math.round(v)-1]||v})}</div><div class="hstat"><span>平均 <b>${RATE[Math.round(avg)-1]}</b> <b class="num">${avg.toFixed(1)}</b></span></div>`}
+    let extra='';const kind=x.type==='check'?x.track:x.type,unit=x.type==='check'?x.trackUnit:x.unit;
+    if(lvOn(x))extra+=`<div class="hstat">${[1,2,3].filter(l=>l===1||levelName(x,l)).map(l=>`<span><span class="lv" style="--c:${LV[l][1]}">${LV[l][0]}</span> <b class="num">${s.lv[l]}</b> 次</span>`).join('')}</div>`;
+    if(kind==='number'&&s.vals.length){const vs=s.vals.map(p=>p.v);extra+=`<div style="margin-top:14px">${lineChart(s.vals.map(p=>({x:p.d,y:p.v,label:m+'/'+p.d})),{color:x.color,goal:x.type==='number'?x.goal:undefined,yFmt:v=>Math.round(v*10)/10})}</div><div class="hstat"><span>最新 <b class="num">${vs[vs.length-1]}</b> ${esc(unit||'')}</span><span>平均 <b class="num">${Math.round(vs.reduce((a,b)=>a+b,0)/vs.length*10)/10}</b></span><span>變化 <b class="num">${(vs[vs.length-1]-vs[0]>0?'+':'')+Math.round((vs[vs.length-1]-vs[0])*10)/10}</b></span></div>`}
+    if(kind==='time'&&s.vals.length){const ms=s.vals.map(p=>t2m(p.v));extra+=`<div style="margin-top:14px">${lineChart(s.vals.map((p,i)=>({x:p.d,y:ms[i],label:m+'/'+p.d})),{color:x.color,goal:x.type==='time'&&x.goal?t2m(x.goal):undefined,yFmt:m2t})}</div><div class="hstat"><span>平均 <b class="num">${m2t(ms.reduce((a,b)=>a+b,0)/ms.length)}</b></span><span>最早 <b class="num">${m2t(Math.min(...ms))}</b></span><span>最晚 <b class="num">${m2t(Math.max(...ms))}</b></span></div>`}
+    if(kind==='rating'&&s.vals.length){const avg=s.vals.reduce((a,b)=>a+b.v,0)/s.vals.length;extra+=`<div style="margin-top:14px">${lineChart(s.vals.map(p=>({x:p.d,y:p.v,label:m+'/'+p.d})),{color:x.color,min:1,max:5,yFmt:v=>RATE[Math.round(v)-1]||v})}</div><div class="hstat"><span>平均 <b>${RATE[Math.round(avg)-1]}</b> <b class="num">${avg.toFixed(1)}</b></span></div>`}
     h+=`<div class="card"><h3>${esc(x.emoji)} ${esc(x.name)} <span class="muted" style="font-weight:600;font-size:.8rem">${TYPES[x.type]}</span></h3><div class="heat">${cal}</div>
       <div class="hstat"><span>達成率 <b class="num">${Math.round(s.rate*100)}%</b></span><span>完成 <b class="num">${s.done}</b> 次</span><span>目前連續 <b class="num">${st.n}</b> ${st.unit}</span>${(x.repeat||{}).mode!=='weekly'?`<span>本月最長 <b class="num">${s.best}</b> 天</span>`:''}</div>${extra}</div>`;
   });
@@ -753,6 +997,7 @@ function renderWeekStats(){
 }
 
 /* ============ SETTINGS ============ */
+const listMgr=(kind,title,ph)=>`<div class="sec-title">${title}</div><div class="group">${S.cfg[kind].map((g,i)=>`<div class="field"><input class="input" style="border:0;padding:4px 0;background:transparent" data-li="${i}" data-kind="${kind}" value="${esc(g)}" aria-label="名稱"><span style="display:flex;gap:6px"><button class="iconbtn" style="width:34px;height:34px" data-act="liUp" data-kind="${kind}" data-i="${i}" aria-label="上移">↑</button><button class="iconbtn" style="width:34px;height:34px" data-act="liDel" data-kind="${kind}" data-i="${i}" aria-label="刪除">✕</button></span></div>`).join('')}<div class="field"><input class="input" id="new-${kind}" placeholder="${ph}" style="border:0;padding:4px 0;background:transparent;flex:1;min-width:0"><button class="btn" style="padding:8px 14px" data-act="liAdd" data-kind="${kind}">新增</button></div></div>`;
 function renderSettings(){
   const st=S.cfg.settings,arch=S.cfg.habits.filter(h=>h.archived);
   return `<h1>設定</h1>
@@ -763,9 +1008,8 @@ function renderSettings(){
     <div class="field"><span class="lb">主頁檢視</span><div class="seg">${[['table','表格'],['card','卡片']].map(([k,l])=>`<button class="${st.view===k?'on':''}" data-act="set" data-k="view" data-v="${k}">${l}</button>`).join('')}</div></div>
     <div class="field"><span class="lb">每週起始日</span><div class="seg">${[[0,'週日'],[1,'週一']].map(([k,l])=>`<button class="${st.weekStart===k?'on':''}" data-act="set" data-k="weekStart" data-v="${k}">${l}</button>`).join('')}</div></div>
   </div>
-  <div class="sec-title">時段</div>
-  <div class="group">${S.cfg.groups.map((g,i)=>`<div class="field"><input class="input" style="border:0;padding:4px 0;background:transparent" data-grp="${i}" value="${esc(g)}" aria-label="時段名稱"><span style="display:flex;gap:6px"><button class="iconbtn" style="width:34px;height:34px" data-act="grpUp" data-i="${i}" aria-label="上移">↑</button><button class="iconbtn" style="width:34px;height:34px" data-act="grpDel" data-i="${i}" aria-label="刪除">✕</button></span></div>`).join('')}
-    <div class="field"><input class="input" id="grpNew" placeholder="新增時段，例如：通勤" style="border:0;padding:4px 0;background:transparent"><button class="btn" style="padding:8px 14px" data-act="grpAdd">新增</button></div></div>
+  ${listMgr('categories','目標標籤','新增標籤，例如：🎨創作')}
+  ${listMgr('groups','執行時段（打算什麼時候執行）','新增，例如：通勤')}
   <div class="sec-title">習慣排序</div>
   <div class="group">${activeHabits().sort((a,b)=>(a.order||0)-(b.order||0)).map(h=>`<div class="field"><span>${esc(h.emoji)} ${esc(h.name)}</span><span style="display:flex;gap:6px"><button class="iconbtn" style="width:34px;height:34px" data-act="hUp" data-id="${h.id}" aria-label="上移">↑</button><button class="iconbtn" style="width:34px;height:34px" data-act="edit" data-id="${h.id}" aria-label="編輯">✎</button></span></div>`).join('')||'<p class="muted">尚無習慣</p>'}</div>
   ${arch.length?`<div class="sec-title">已封存</div><div class="group">${arch.map(h=>`<div class="field"><span>${esc(h.emoji)} ${esc(h.name)}</span><button class="btn ghost" style="padding:8px 14px" data-act="unarch" data-id="${h.id}">還原</button></div>`).join('')}</div>`:''}
@@ -811,12 +1055,12 @@ $('#app').addEventListener('click',async e=>{
     case 'week':S.ui.sel=addD(S.ui.sel,Number(D.d));render();ensureMonthsFor(S.ui.sel);break;
     case 'gotoToday':S.ui.sel=todayS();render();break;
     case 'todayTab':S.ui.todayTab=D.v;render();break;
-    case 'gf':S.ui.gf=D.v||null;render();break;
-    case 'log':doLog(D.id);break;
+    case 'cf':S.ui.cf=S.ui.cf===D.v?null:D.v;render();break;
+    case 'log':if(lpFired){lpFired=false;break}doLog(D.id);break;
     case 'edit':openHabitEditor(D.id);break;
     case 'newHabit':openHabitEditor();break;
     case 'starter':{const i=Number(D.i);S.ui.starter.has(i)?S.ui.starter.delete(i):S.ui.starter.add(i);render();break}
-    case 'addStarters':[...S.ui.starter].sort().forEach((i,k)=>{const s=STARTERS[i];S.cfg.habits.push({id:uid(),color:HCOLORS[k%HCOLORS.length],repeat:{mode:'daily'},group:'',target:1,unit:'',duration:3,createdAt:todayS(),order:S.cfg.habits.length,...clone(s)})});S.ui.starter.clear();saveCfg();render();toast('已加入，點名稱可以調整設定');break;
+    case 'addStarters':[...S.ui.starter].sort().forEach((i,k)=>{const s=STARTERS[i];S.cfg.habits.push({id:uid(),color:HCOLORS[k%HCOLORS.length],repeat:{mode:'daily'},group:'',category:'',target:1,unit:'',duration:3,importance:1,showStreak:true,highlight:false,createdAt:todayS(),order:S.cfg.habits.length,...clone(s)})});S.ui.starter.clear();saveCfg();render();toast('已加入，點名稱可以調整設定');break;
     case 'addTodo':{const i=$('#todoIn');const v=i.value.trim();if(!v)return;S.cfg.todos.push({id:uid(),title:v,date:S.ui.sel,done:false});saveCfg();render();$('#todoIn').focus();break}
     case 'toggleTodo':{const t=S.cfg.todos.find(x=>x.id===D.id);t.done=!t.done;saveCfg();render();break}
     case 'delTodo':S.cfg.todos=S.cfg.todos.filter(x=>x.id!==D.id);saveCfg();render();break;
@@ -824,22 +1068,32 @@ $('#app').addEventListener('click',async e=>{
     case 'newRoutine':openRoutineEditor();break;
     case 'editRoutine':openRoutineEditor(D.id);break;
     case 'startRoutine':startRoutine(D.id);break;
+    case 'rtog':{const r=S.cfg.routines.find(x=>x.id===D.id);if(r){r.collapsed=!r.collapsed;saveCfg();render()}break}
+    case 'rinfo':openSheet(`<div class="grab"></div><div class="sh-head"><h2>什麼是作息？</h2><button class="iconbtn" data-x aria-label="關閉">✕</button></div>${routineInfoHTML()}<button class="btn block" data-x style="margin-top:14px">知道了</button>`,sh=>{sh.onclick=e=>{if(e.target.closest('[data-x]'))closeSheet()}});break;
     case 'statsMode':S.ui.statsMode=D.v;render();break;
     case 'statsMonth':{const [y,m]=S.ui.statsMonth.split('-').map(Number);const d=new Date(y,m-1+Number(D.d),1);S.ui.statsMonth=d.getFullYear()+'-'+pad(d.getMonth()+1);await Promise.all(monthsBack(S.ui.statsMonth,2).map(loadMonth));render();break}
     case 'accent':S.cfg.settings.accent=D.v;saveCfg();render();break;
     case 'set':S.cfg.settings[D.k]=D.k==='weekStart'?Number(D.v):D.v;saveCfg();render();break;
-    case 'grpAdd':{const v=$('#grpNew').value.trim();if(!v||S.cfg.groups.includes(v))return;S.cfg.groups.push(v);saveCfg();render();break}
-    case 'grpDel':{const g=S.cfg.groups[D.i];if(!confirm(`刪除時段「${g}」？使用這個時段的習慣會變成不指定。`))return;S.cfg.groups.splice(D.i,1);S.cfg.habits.forEach(h=>{if(h.group===g)h.group=''});saveCfg();render();break}
-    case 'grpUp':{const i=Number(D.i);if(i>0){const G=S.cfg.groups;[G[i-1],G[i]]=[G[i],G[i-1]];saveCfg();render()}break}
+    case 'liAdd':{const k=D.kind,v=$('#new-'+k).value.trim();if(!v||S.cfg[k].includes(v))return;S.cfg[k].push(v);saveCfg();render();break}
+    case 'liDel':{const k=D.kind,f=k==='groups'?'group':'category',g=S.cfg[k][D.i];if(!confirm(`刪除「${g}」？使用它的習慣會變成不指定。`))return;S.cfg[k].splice(D.i,1);S.cfg.habits.forEach(h=>{if(h[f]===g)h[f]=''});if(S.ui.cf===g)S.ui.cf=null;saveCfg();render();break}
+    case 'liUp':{const k=D.kind,i=Number(D.i);if(i>0){const G=S.cfg[k];[G[i-1],G[i]]=[G[i],G[i-1]];saveCfg();render()}break}
     case 'hUp':{const list=activeHabits().sort((a,b)=>(a.order||0)-(b.order||0));const i=list.findIndex(h=>h.id===D.id);if(i>0){[list[i-1],list[i]]=[list[i],list[i-1]];list.forEach((h,k)=>h.order=k);saveCfg();render()}break}
     case 'unarch':H(D.id).archived=false;saveCfg();render();break;
     case 'export':exportData();break;
   }
 });
-$('#app').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='todoIn'){e.preventDefault();$('[data-act="addTodo"]').click()}if(e.key==='Enter'&&e.target.id==='grpNew'){$('[data-act="grpAdd"]').click()}});
+let lpT=null,lpFired=false;
+$('#app').addEventListener('pointerdown',e=>{const b=e.target.closest('[data-act="log"]');if(!b)return;const h=H(b.dataset.id);lpFired=false;clearTimeout(lpT);
+  if(!h||!lvOn(h))return;
+  lpT=setTimeout(()=>{lpFired=true;if(navigator.vibrate)navigator.vibrate(30);if(S.ui.sel>todayS()){toast('還沒到這一天');return}openCheckSheet(h)},450)});
+['pointerup','pointercancel'].forEach(ev=>$('#app').addEventListener(ev,()=>clearTimeout(lpT)));
+window.addEventListener('scroll',()=>clearTimeout(lpT),{passive:true});
+$('#app').addEventListener('contextmenu',e=>{if(e.target.closest('[data-act="log"]'))e.preventDefault()});
+$('#app').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='todoIn'){e.preventDefault();$('[data-act="addTodo"]').click()}if(e.key==='Enter'&&e.target.id&&e.target.id.startsWith('new-')){e.target.nextElementSibling.click()}});
 $('#app').addEventListener('change',e=>{
   const t=e.target;
-  if(t.dataset.grp!==undefined){const i=Number(t.dataset.grp),old=S.cfg.groups[i],nv=t.value.trim();if(!nv||S.cfg.groups.includes(nv)){t.value=old;return}S.cfg.groups[i]=nv;S.cfg.habits.forEach(h=>{if(h.group===old)h.group=nv});saveCfg();render()}
+  if(t.dataset.li!==undefined){const k=t.dataset.kind,f=k==='groups'?'group':'category',i=Number(t.dataset.li),old=S.cfg[k][i],nv=t.value.trim();if(!nv||S.cfg[k].includes(nv)){t.value=old;return}S.cfg[k][i]=nv;S.cfg.habits.forEach(h=>{if(h[f]===old)h[f]=nv});if(S.ui.cf===old)S.ui.cf=nv;saveCfg();render()}
+  if(t.dataset.sel==='ff'){S.ui.ff=t.value;render()}
   if(t.id==='accentPick'){S.cfg.settings.accent=t.value;saveCfg();render()}
   if(t.id==='importIn'&&t.files[0]){const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.cfg||!Array.isArray(d.cfg.habits))throw 0;if(!confirm('匯入會覆蓋目前的習慣與紀錄，確定嗎？'))return;S.cfg=Object.assign(clone(DEFAULT_CFG),d.cfg);S.cfg.settings=Object.assign(clone(DEFAULT_CFG.settings),d.cfg.settings||{});saveCfg();Object.entries(d.logs||{}).forEach(([k,v])=>{S.logs[k]={days:v.days||{}};saveMonth(k)});render();toast('已匯入備份')}catch(err){toast('檔案格式不正確')}};r.readAsText(t.files[0])}
 });
@@ -848,10 +1102,29 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&S.ui.tab=
 /* ============ boot ============ */
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
 if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
+function migrate(){
+  if((S.cfg.v||1)>=3)return;
+  const M={'⚖️減重':'💪健康管理','🌱自我提升':'📚學習成長','📚學習/工作':'📚學習成長'};
+  S.cfg.categories=[...new Set((S.cfg.categories||[]).map(c=>M[c]||c))];
+  S.cfg.habits.forEach(h=>{if(M[h.category])h.category=M[h.category]});
+  if(S.ui.cf&&M[S.ui.cf])S.ui.cf=M[S.ui.cf];
+  S.cfg.v=3;saveCfg();
+}
+function migrate4(){
+  if((S.cfg.v||1)>=4)return;
+  const G=S.cfg.groups;
+  if(G.includes('飯後')&&!G.includes('中午')){G[G.indexOf('飯後')]='中午';S.cfg.habits.forEach(h=>{if(h.group==='飯後')h.group='中午'});S.cfg.routines.forEach(r=>{if(r.group==='飯後')r.group='中午'})}
+  if(!G.includes('晚上')){const i=G.indexOf('睡前');i<0?G.push('晚上'):G.splice(i,0,'晚上')}
+  if(!G.includes('通勤'))G.push('通勤');
+  S.cfg.v=4;saveCfg();
+}
+async function loadAll(){const t=todayS();const first=S.cfg.habits.reduce((a,h)=>h.createdAt&&h.createdAt<a?h.createdAt:a,t);let [y,m]=ymOf(first).split('-').map(Number);const [ty,tm]=ymOf(t).split('-').map(Number);const out=[];while(y<ty||(y===ty&&m<=tm)){out.push(y+'-'+pad(m));m++;if(m>12){m=1;y++}}await Promise.all(out.map(loadMonth))}
 (async function boot(){
   const c=Store.localGet('config');
   if(c){S.cfg=Object.assign(clone(DEFAULT_CFG),c);S.cfg.settings=Object.assign(clone(DEFAULT_CFG.settings),c.settings||{})}
   monthsBack(ymOf(todayS()),3).forEach(k=>S.logs[k]=Store.localGet('log-'+k)||{days:{}});
+  migrate();migrate4();
+  await loadAll();
   render();
   await Store.init();
   if(Store.cloud){
@@ -862,6 +1135,7 @@ if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catc
     await Promise.all(yms.map(loadMonth));
     render();
   }
+  checkAch();
 })();
 </script>
 </body>
